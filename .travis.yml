@@ -14,7 +14,7 @@ after_success:
   - docker build -t elzhilch0/multi-server ./server
   - docker build -t elzhilch0/multi-worker ./worker
 
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD docker.io
   - docker push elzhilch0/multi-client
   - docker push elzhilch0/multi-nginx
   - docker push elzhilch0/multi-server
